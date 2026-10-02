@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/map";
 import { Plane } from 'lucide-react';
 import { useArduino } from "@/hooks/useArduino";
-import { useEffect } from "react";
 import GeolocateOnLoad from "@/components/ui/GeolocateOnLoad";
+import SatelliteOnLoad from "@/components/ui/SatelliteOnLoad";
 
 const markers = [
   { id: 1, name: "Times Square", lng: -73.9855, lat: 40.758 },
@@ -23,8 +23,10 @@ function MarkerExample() {
 
   return (
     <div className="h-[600px] w-full">
-      <Map center={[-73.50, 45.50]} zoom={18}>
+      <Map center={[-73.50, 45.50]} zoom={10}>
         <GeolocateOnLoad />
+        <SatelliteOnLoad />
+
         {markers.map((location) => (
           <MapMarker
             key={location.id}
